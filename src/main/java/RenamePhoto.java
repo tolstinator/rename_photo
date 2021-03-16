@@ -4,6 +4,7 @@ import java.nio.file.Files;
 import java.nio.file.attribute.FileTime;
 import java.time.LocalDateTime;
 import java.time.ZoneOffset;
+import java.util.Objects;
 
 public class RenamePhoto {
 
@@ -19,7 +20,7 @@ public class RenamePhoto {
         String second;
         String fileName;
         LocalDateTime newFileDateTime;
-        for (File file : directory.listFiles()) {
+        for (File file : Objects.requireNonNull(directory.listFiles())) {
             fileName = file.getName();
             year = fileName.substring(4, 8);
             month = fileName.substring(8, 10);
